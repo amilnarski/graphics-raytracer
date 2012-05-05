@@ -17,7 +17,6 @@ public class RayTracer{
 			System.exit(-1);
 		}
 		
-		//Read in the image data file
 		RGBPixel[][] img = new RGBPixel[1024][768];
 		
 		for (int scanline = 0; scanline<RGBPixel.length; scanline++){
@@ -27,6 +26,8 @@ public class RayTracer{
 				RGBPixel[scanline][pixel] = trace(ray, 1);
 			}
 		}
+		
+		RedWritePPM.write (img, filename);
 		
 	}
 	
