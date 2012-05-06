@@ -1,7 +1,14 @@
+import java.util.BufferedReader;
+import java.util.FileReader;
+import java.util.regex.*;
+
 public class RayTracer{
 	RGBPixel ambient;
 	Light[] lights;	
 	int maxDepth = 5;
+	Pattern light = new Pattern("");
+	Pattern polygon = new Pattern("P\wV\((\d+),(\d+),(\d)+\)\wV\((\d+),(\d+),(\d)+\)\wV\((\d+),(\d+),(\d)+\)\wColor\((\d+),(\d+),(\d)+\)\wD\d+\.\d+");
+	Patther sphere = new Pattern("");
 	public RayTracer(){
 		
 	}
@@ -74,5 +81,9 @@ public class RayTracer{
 		} else {
 			return color;			
 		}
+	}
+	
+	private void readSceneFile(){
+		BufferedReader sceneReader = new BufferedReader(new FileReader("scene.gdf"));
 	}
 }
