@@ -1,6 +1,4 @@
-import java.util.BufferedReader;
-import java.util.FileReader;
-import java.util.regex.*;
+import java.util.*;
 
 public class RayTracer{
 	RGBPixel ambient;

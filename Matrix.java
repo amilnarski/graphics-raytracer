@@ -16,7 +16,7 @@ public class Matrix{
 	public Matrix mult(Matrix matrix){
 		//CHECK MATRIX DIMENSTIONS
 		if (transform[0].length != matrix.getTrans().length){
-			//CAN'T MULT, ERROR OUT
+			//CAN'T MULT, ERROR OUT, REPLACE WITH EXCEPTION AT SOME POINT
 			return null;
 		}
 		double[][] result = new double [transform[0].length][matrix.getTrans().length];
@@ -35,10 +35,7 @@ public class Matrix{
 	
 	public Vertex transform(Vertex v){
 		Matrix vertex = new Matrix(new double[][]{{v.getX(),0,0,0},{v.getY(),0,0,0}, {v.getZ(),0,0,0},{1,0,0,0}});
-		//Matrix vertex = new Matrix(new double[][]{{v.getX(),v.getY(), v.getZ(),0}});
-		//System.out.println(vertex);
 		Matrix tv = mult(vertex);
-		//System.out.print("After Mult: "+tv);
 		double[][] res = tv.getTrans();
 		Vertex tran = new Vertex(res[0][0],res[1][0],res[2][0]);
 		return tran;
