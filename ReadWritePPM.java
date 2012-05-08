@@ -1,3 +1,4 @@
+package in.aaronmiller.raytrace;
 /*
    ReadWritePPM contains methods that 
 

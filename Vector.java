@@ -1,3 +1,4 @@
+package in.aaronmiller.raytrace;
 public class Vector {
 	private double[] coord;
 
@@ -7,7 +8,7 @@ public class Vector {
 
 	public Vector crossProduct(Vector vec) {
 		double[] vecCoord = vec.getValue();
-		// V1 x V2 = (v1yv2z Ð v1z v2y, v1zv2x Ð v1x v2z, v1xv2y Ð v1y v2x
+		// V1 x V2 = (v1yv2z â€“ v1z v2y, v1zv2x â€“ v1x v2z, v1xv2y â€“ v1y v2x
 		double xCross = (coord[1] * vecCoord[2]) - (coord[2] * vecCoord[1]);
 		double yCross = (coord[2] * vecCoord[0]) - (coord[0] * vecCoord[2]);
 		double zCross = (coord[0] * vecCoord[1]) - (coord[1] * vecCoord[0]);

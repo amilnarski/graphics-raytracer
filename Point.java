@@ -1,3 +1,4 @@
+package in.aaronmiller.raytrace;
 public class Point{
 	protected double x;
 	protected double y;

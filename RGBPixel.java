@@ -1,3 +1,4 @@
+package in.aaronmiller.raytrace;
 public class RGBPixel
 {
 	private int r;

@@ -1,14 +1,24 @@
+package in.aaronmiller.raytrace;
 import java.util.*;
 
 public class RayTracer{
 	RGBPixel ambient;
-	Light[] lights;	
-	int maxDepth = 5;
-	Pattern light = new Pattern("");
-	Pattern polygon = new Pattern("P\wV\((\d+),(\d+),(\d)+\)\wV\((\d+),(\d+),(\d)+\)\wV\((\d+),(\d+),(\d)+\)\wColor\((\d+),(\d+),(\d)+\)\wD\d+\.\d+");
-	Patther sphere = new Pattern("");
+	ArrayList <Light> lights;	
+	int maxDepth;
+	ArrayList <Form> objects;
+	Pattern light;
+	Pattern polygon;
+	Pattern sphere;
+
+	
 	public RayTracer(){
-		
+		this.ambient = 0;
+		this.lights = new ArrayList <Light>();
+		this.maxDepth = 5;
+		this.objects = new ArrayList <Form>();
+		this.light = new Pattern .compile("");
+		this.polygon = new Pattern.compile("P\\wV\\((\\d+),(\\d+),(\\d)+\\)\\wV\\((\\d+),(\\d+),(\\d)+\\)\\wV\\((\\d+),(\\d+),(\\d)+\\)\\wColor\\((\\d+),(\\d+),(\\d)+\\)\\wD\\d+\\.\\d+");
+		this.sphere = new Pattern .compile("");
 	}
 	
 	public static void main(String [] args){
@@ -17,11 +27,12 @@ public class RayTracer{
 		if (argsLength == 1){
 			filename = args[0].trim();
 		} else {
-			//simple exit if no filename is given
+			//simply exit if no filename is given
 			System.out.println("Please call this with the format 'java RayTracer filename'.");
 			System.exit(-1);
 		}
 		
+		//set up the image
 		RGBPixel[][] img = new RGBPixel[1024][768];
 		
 		for (int scanline = 0; scanline<RGBPixel.length; scanline++){
@@ -32,7 +43,8 @@ public class RayTracer{
 			}
 		}
 		
-		RedWritePPM.write (img, filename);
+		//write the produced image as a PPM
+		writePPM(img);
 		
 	}
 	
@@ -61,18 +73,18 @@ public class RayTracer{
 		color = ambient;
 		for (int light = 0; i < lights.length; i++){
 			sRay = new Ray (lights[light]);//pass in the light
-			if(/*dot product of the normal & direction to light is positive*/) {
+			if(false/*dot product of the normal & direction to light is positive*/) {
 				//add the diffuse and specular terms to the color
 			}
 		}// end for
 		if (depth < maxDepth){
-			if (/*object is reflective*/){
+			if (false/*object is reflective*/){
 				rRay = //ray in reflection direction from point
 				rColor = trace(rRay, ++depth);
 				//scale rColor by specular coefficient and add to color
 			}
 			
-			if (/*object is transparent*/){
+			if (false/*object is transparent*/){
 				//do stuff, but this won't be the case so it will be ignored
 			}
 			
@@ -83,5 +95,9 @@ public class RayTracer{
 	
 	private void readSceneFile(){
 		BufferedReader sceneReader = new BufferedReader(new FileReader("scene.gdf"));
+	}
+	
+	private void writePPM(RGBPixel[][] imageArray){
+		ReadWritePPM.writeImage(imageArray, "image.ppm");
 	}
 }
