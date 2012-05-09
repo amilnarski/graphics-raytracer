@@ -1,5 +1,7 @@
 package in.aaronmiller.raytrace;
-import java.util.*;
+import java.util.BufferedReader;
+import java.util.FileReader;
+import java.util.ArrayList;
 
 public class RayTracer{
 	RGBPixel ambient;
@@ -34,7 +36,7 @@ public class RayTracer{
 		
 		//set up the image
 		RGBPixel[][] img = new RGBPixel[1024][768];
-		
+		RayTracer rt = new RayTracer();
 		for (int scanline = 0; scanline<RGBPixel.length; scanline++){
 			for (int pixel = 0; pixel < RGBPixel[0].length; pixel++){
 				//determine ray from COP --> pixel
@@ -44,7 +46,7 @@ public class RayTracer{
 		}
 		
 		//write the produced image as a PPM
-		writePPM(img);
+		rt.writePPM(img);
 		
 	}
 	
