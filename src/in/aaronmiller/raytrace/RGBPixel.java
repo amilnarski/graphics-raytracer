@@ -51,4 +51,8 @@ public class RGBPixel
 	{
 		b = blue;
 	}
+	
+	public String toString(){
+		return "Color: ("+r+", "+g+", "+b+")";
+	}
 }

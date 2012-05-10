@@ -10,6 +10,9 @@ public class Point{
 		this.y = y;
 		this.z = z;
 		this.h = h;
-		
+	}
+	
+	public String toString (){
+		return "("+x+", "+y+", "+z+")";
 	}
 }

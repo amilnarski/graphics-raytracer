@@ -33,6 +33,12 @@ public class Vector {
 		coord[2] = coord[2]/mag;
 		
 	}
+	
+	public double getTheta(Vector v){
+		double theta;
+		theta = (dotProduct(v))/(magnitude()*v.magnitude());
+		return theta;
+	}
 
 	public boolean isZero() {
 		boolean zero = true;

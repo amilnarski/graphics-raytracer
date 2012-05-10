@@ -34,11 +34,11 @@ public class Matrix{
 		
 	}
 	
-	public Vertex transform(Vertex v){
-		Matrix vertex = new Matrix(new double[][]{{v.getX(),0,0,0},{v.getY(),0,0,0}, {v.getZ(),0,0,0},{1,0,0,0}});
+	public Point transform(Point v){
+		Matrix vertex = new Matrix(new double[][]{{v.x,0,0,0},{v.y,0,0,0}, {v.z,0,0,0},{1,0,0,0}});
 		Matrix tv = mult(vertex);
 		double[][] res = tv.getTrans();
-		Vertex tran = new Vertex(res[0][0],res[1][0],res[2][0]);
+		Point tran = new Point(res[0][0],res[1][0],res[2][0],1);
 		return tran;
 	}
 	

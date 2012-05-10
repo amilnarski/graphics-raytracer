@@ -1,0 +1,4 @@
+String line = "P V(100,300,70) V(100,100,20) V(400,200,200) Color(100,100,100) D0.7";
+java.util.regex.Pattern polygon = Pattern
+.compile("P\\wV\\((\\d+),(\\d+),(\\d)+\\)\\wV\\((\\d+),(\\d+),(\\d)+\\)\\wV\\((\\d+),(\\d+),(\\d)+\\)\\wColor\\((\\d+),(\\d+),(\\d)+\\)\\wD\\d+\\.\\d+");
+System.out.println(polygon.matcher(line).matches());
