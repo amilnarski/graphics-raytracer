@@ -26,6 +26,7 @@ public class Polygon extends Form {
 			Vector v2 = new Vector(three.x - two.x, three.y - two.y, three.z
 					- two.z);
 			normal = v1.crossProduct(v2);
+			normal.normalize();
 		}
 	}
 
